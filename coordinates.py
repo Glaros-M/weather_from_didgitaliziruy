@@ -9,7 +9,7 @@ class Coordinates:
 
 def get_gps_coordinates() -> Coordinates:
 	"""Returns current GPS coordinates"""
-	return Coordinates(10,20)
+	return Coordinates(10, 20)
 
 
 
