@@ -1,14 +1,14 @@
 from datetime import datetime
 from dataclasses import dataclass
-from typing import TypeAlias
 from enum import Enum
 
 from coordinates import Coordinates
 
-Celsius: TypeAlias = float
+Celsius = int
 
 
-class WeatherType(Enum):
+# Типы погоды взяты из API погоды
+class WeatherType(str, Enum):
     THUNDERSTORM = "Гроза"
     DRIZZLE = "Изморозь"
     RAIN = "Дождь"
@@ -18,6 +18,7 @@ class WeatherType(Enum):
     CLOUDS = "Облачно"
 
 
+# Подробнее изучить все начиная с ООП, заканчивая Датакласс'ами и параметрами которые передаются и могут передаваться
 @dataclass(slots=True, frozen=True)
 class Weather:
     temperature: Celsius
@@ -29,4 +30,12 @@ class Weather:
 
 def get_weather(coordinates: Coordinates):
     """Requests weather in OpenWeather API and rerurns it"""
-    pass
+    return Weather(
+        temperature=20,
+        weather_type=WeatherType.CLEAR,
+        sunrise=datetime.fromisoformat("2022-05-04 04:00:00"),
+        sunset=datetime.fromisoformat("2022-05-04 20:25:00"),
+        city="Moscow"
+    )
+
+

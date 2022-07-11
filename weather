@@ -7,7 +7,7 @@ from weather_fromatter import format_weather
 def main():
 	coordinates = get_gps_coordinates()
 	weather = get_weather(coordinates)
-	print(format_weather(weather)
+	print(format_weather(weather))
 
 
 if __name__ == "__main__":
